@@ -116,7 +116,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="FLAGANCES">
+                                        <fragment content="FRAGRANCES">
                                             <attributes>
                                                 <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,6 +151,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="rmD-Fj-AHB"/>
+                    <connections>
+                        <outlet property="fragrancesButton" destination="0Jd-vt-xew" id="v4x-4E-qWi"/>
+                        <outlet property="hairCareButton" destination="Bqf-ur-Fnr" id="Xja-hN-pwC"/>
+                        <outlet property="makeUpButton" destination="uFj-J2-Drh" id="zJL-pK-ljp"/>
+                        <outlet property="skincareButton" destination="R4l-ta-GZh" id="Jp3-f0-18t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HG-q2-CB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

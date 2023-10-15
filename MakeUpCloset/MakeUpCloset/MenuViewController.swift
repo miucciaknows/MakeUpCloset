@@ -10,6 +10,11 @@ import UIKit
 
 class MenuViewController:UIViewController {
     
+    @IBOutlet weak var skincareButton: UIButton!
+    @IBOutlet weak var makeUpButton: UIButton!
+    @IBOutlet weak var hairCareButton: UIButton!
+    @IBOutlet weak var fragrancesButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
