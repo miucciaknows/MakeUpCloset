@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--MenuViewController-->
         <scene sceneID="sHN-Nx-Bh8">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="e0s-2S-o37" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" title="MenuViewController" interactionActivityTrackingBaseName="MenuViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e0s-2S-o37" customClass="MenuViewController" customModule="MakeUpCloset" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wIF-pO-0Le">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
