@@ -17,7 +17,17 @@ class MenuViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        setUpLook(skincareButton)
+        setUpLook(makeUpButton)
+        setUpLook(hairCareButton)
+        setUpLook(fragrancesButton)
+    }
+    
+    private func setUpLook(_ button: UIButton) {
+        button.layer.cornerRadius = 34;
+        button.layer.borderColor = UIColor.lightGray.cgColor;
+        button.layer.borderWidth = 0.5;
     }
     
 }
