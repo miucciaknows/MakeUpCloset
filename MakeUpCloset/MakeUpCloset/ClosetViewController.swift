@@ -13,6 +13,10 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
     
     var selectedButton: choosenButton?
     
+    @IBOutlet weak var tableContentView: UITableView!
+
+    @IBOutlet weak var pageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
