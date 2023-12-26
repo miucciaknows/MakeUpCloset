@@ -11,7 +11,12 @@ import UIKit
 
 class ClosetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var selectedButtonType: ButtonType?
+    var selectedButton: choosenButton?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         <#code#>
     }
@@ -20,10 +25,6 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
         <#code#>
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     
 }

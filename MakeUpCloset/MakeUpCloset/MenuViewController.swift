@@ -24,6 +24,8 @@ class MenuViewController:UIViewController {
     @IBOutlet weak var hairCareButton: UIButton!
     @IBOutlet weak var fragrancesButton: UIButton!
     
+    var selectedButtonType: choosenButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +46,7 @@ class MenuViewController:UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "closetViewType" {
             if let destination = segue.destination as? ClosetViewController {
-                destination.selectedButtonType = choosenButton
+                destination.selectedButton = selectedButtonType
                 
             }
         }
