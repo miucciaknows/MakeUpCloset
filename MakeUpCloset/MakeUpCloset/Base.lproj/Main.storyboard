@@ -76,6 +76,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="fnG-EH-cw5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4l-ta-GZh">
                                 <rect key="frame" x="64" y="287" width="265" height="55"/>
@@ -95,6 +98,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="Ozh-XB-E0U"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqf-ur-Fnr">
                                 <rect key="frame" x="64" y="385" width="265" height="55"/>
@@ -114,6 +120,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="IYi-K7-n0A"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-ir-NWq">
                                 <rect key="frame" x="16" y="64" width="40" height="35"/>
@@ -145,6 +154,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="WeD-0N-MSS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMa-Nd-OML"/>
@@ -162,22 +174,40 @@
             </objects>
             <point key="canvasLocation" x="942.74809160305335" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--ClosetViewController-->
         <scene sceneID="KK1-Iv-Yqm">
             <objects>
-                <viewController id="iAv-kA-krf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClosetViewController" title="ClosetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iAv-kA-krf" customClass="ClosetViewController" customModule="MakeUpCloset" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bQp-g2-Bff">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jNP-rt-CwR">
+                                <rect key="frame" x="16" y="112" width="361" height="641"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-mU-4Gv">
+                                <rect key="frame" x="16" y="69" width="361" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
+                                <color key="textColor" red="0.97084927720000003" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aAd-PT-i2I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kut-yd-oAx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBE-v0-fNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1930.534351145038" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WeD-0N-MSS"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>

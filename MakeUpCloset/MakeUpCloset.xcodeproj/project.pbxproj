@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1B7B1D2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B7B1C2B3AFB9A00696E58 /* ClosetViewController.swift */; };
+		EA1B7B1E2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B7B1C2B3AFB9A00696E58 /* ClosetViewController.swift */; };
+		EA1B7B1F2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1B7B1C2B3AFB9A00696E58 /* ClosetViewController.swift */; };
 		EA63A4112ADC229B004A8839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63A4102ADC229B004A8839 /* AppDelegate.swift */; };
 		EA63A4132ADC229B004A8839 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63A4122ADC229B004A8839 /* SceneDelegate.swift */; };
 		EA63A4152ADC229B004A8839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63A4142ADC229B004A8839 /* ViewController.swift */; };
@@ -37,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA1B7B1C2B3AFB9A00696E58 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		EA63A40D2ADC229B004A8839 /* MakeUpCloset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeUpCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA63A4102ADC229B004A8839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA63A4122ADC229B004A8839 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				EA63A4122ADC229B004A8839 /* SceneDelegate.swift */,
 				EA63A4142ADC229B004A8839 /* ViewController.swift */,
 				EA63A4402ADC9CB7004A8839 /* MenuViewController.swift */,
+				EA1B7B1C2B3AFB9A00696E58 /* ClosetViewController.swift */,
 				EA63A4162ADC229B004A8839 /* Main.storyboard */,
 				EA63A4192ADC229D004A8839 /* Assets.xcassets */,
 				EA63A41B2ADC229D004A8839 /* LaunchScreen.storyboard */,
@@ -262,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA63A4152ADC229B004A8839 /* ViewController.swift in Sources */,
+				EA1B7B1D2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */,
 				EA63A4112ADC229B004A8839 /* AppDelegate.swift in Sources */,
 				EA63A4132ADC229B004A8839 /* SceneDelegate.swift in Sources */,
 				EA63A4412ADC9CB7004A8839 /* MenuViewController.swift in Sources */,
@@ -273,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA63A4282ADC229D004A8839 /* MakeUpClosetTests.swift in Sources */,
+				EA1B7B1E2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +289,7 @@
 			files = (
 				EA63A4322ADC229D004A8839 /* MakeUpClosetUITests.swift in Sources */,
 				EA63A4342ADC229D004A8839 /* MakeUpClosetUITestsLaunchTests.swift in Sources */,
+				EA1B7B1F2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
