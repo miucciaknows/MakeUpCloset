@@ -199,6 +199,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="kut-yd-oAx"/>
+                    <connections>
+                        <outlet property="pageLabel" destination="Upo-mU-4Gv" id="5aW-yq-6gW"/>
+                        <outlet property="tableContentView" destination="jNP-rt-CwR" id="6sI-kK-ppN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBE-v0-fNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
