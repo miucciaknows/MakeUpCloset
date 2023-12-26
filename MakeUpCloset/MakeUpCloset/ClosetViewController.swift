@@ -15,6 +15,20 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch selectedButton {
+        case .skinCare:
+            skinCareContent()
+        case .makeUp:
+            makeUpContent()
+        case .hairCare:
+            hairCareContent()
+        case .fragrances:
+            fragrancesContent()
+        default:
+            break
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,6 +39,22 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
         <#code#>
     }
     
+    private func skinCareContent() {
+        
+    }
+    
+    
+    private func makeUpContent() {
+        
+    }
+    
+    private func hairCareContent() {
+        
+    }
+    
+    private func fragrancesContent() {
+        
+    }
     
     
 }
