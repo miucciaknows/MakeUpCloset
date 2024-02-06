@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22503" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22503"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,7 +53,7 @@
         <!--MenuViewController-->
         <scene sceneID="sHN-Nx-Bh8">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" title="MenuViewController" interactionActivityTrackingBaseName="MenuViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e0s-2S-o37" customClass="MenuViewController" customModule="MakeUpCloset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" title="MenuViewController" interactionActivityTrackingBaseName="MenuViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e0s-2S-o37" customClass="MenuViewController" customModule="MakeUpCloset" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wIF-pO-0Le">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +77,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="fnG-EH-cw5"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="Et2-qv-NS1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4l-ta-GZh">
@@ -99,7 +99,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="Ozh-XB-E0U"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="UFP-m5-BBP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqf-ur-Fnr">
@@ -121,7 +121,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="IYi-K7-n0A"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="8T0-U3-f9r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-ir-NWq">
@@ -155,7 +155,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="custom" identifier="closetViewType" id="WeD-0N-MSS"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="LCO-nW-2SJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,7 +210,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WeD-0N-MSS"/>
+        <segue reference="LCO-nW-2SJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

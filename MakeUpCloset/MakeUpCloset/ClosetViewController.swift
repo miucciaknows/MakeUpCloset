@@ -12,54 +12,71 @@ import UIKit
 class ClosetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var selectedButton: choosenButton?
+    var brands: [String] = []
     
     @IBOutlet weak var tableContentView: UITableView!
 
     @IBOutlet weak var pageLabel: UILabel!
     
+    enum Section {
+        case brand
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
+        loadBrands()
+    }
+    private func setupUI() {
         switch selectedButton {
         case .skinCare:
-            skinCareContent()
+            pageLabel.text = "Skin Care"
         case .makeUp:
-            makeUpContent()
+            pageLabel.text = "Makeup"
         case .hairCare:
-            hairCareContent()
+            pageLabel.text = "Hair Care"
         case .fragrances:
-            fragrancesContent()
+            pageLabel.text = "Fragrances"
         default:
             break
-            
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
+        return brands.count
+        }
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BrandCell", for: indexPath)
+            
+        let brand = brands[indexPath.row]
+        cell.textLabel?.text = brand
+        return cell
+        }
     
-    private func skinCareContent() {
+    private func loadBrands() {
         
-    }
-    
-    
-    private func makeUpContent() {
+         brands = ["Brand A", "Brand B", "Brand C"]
+         tableContentView.reloadData()
+     }
+
+    @IBAction func addBrand(_ sender: Any) {
+         let alertController = UIAlertController(title: "Add Brand", message: "Enter the brand name", preferredStyle: .alert)
+         alertController.addTextField { textField in
+             textField.placeholder = "Brand Name"
+         }
         
-    }
-    
-    private func hairCareContent() {
+        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+            guard let brandName = alertController.textFields?.first?.text, !brandName.isEmpty else { return }
+                   self?.brands.append(brandName)
+                   self?.tableContentView.reloadData()
+               }
+               let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+               alertController.addAction(addAction)
+               alertController.addAction(cancelAction)
+               present(alertController, animated: true, completion: nil)
+           }
         
+ 
     }
-    
-    private func fragrancesContent() {
-        
-    }
-    
-    
-}
 

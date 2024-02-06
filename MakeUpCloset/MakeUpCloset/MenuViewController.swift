@@ -13,7 +13,6 @@ enum choosenButton {
     case makeUp
     case hairCare
     case fragrances
-  
 }
 
 
@@ -41,16 +40,30 @@ class MenuViewController:UIViewController {
         button.layer.borderWidth = 0.5;
     }
     
+    @IBAction func skincareButtonTapped(_ sender: Any) {
+           selectedButtonType = .skinCare
+       }
+    
+    @IBAction func makeUpButtonTapped(_ sender: Any) {
+         selectedButtonType = .makeUp
+     }
+     
+     @IBAction func hairCareButtonTapped(_ sender: Any) {
+         selectedButtonType = .hairCare
+     }
+     
+     @IBAction func fragrancesButtonTapped(_ sender: Any) {
+         selectedButtonType = .fragrances
+     }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "closetViewType" {
-            if let destination = segue.destination as? ClosetViewController {
-                destination.selectedButton = selectedButtonType
-                
-            }
-        }
-        
-    }
-    
-}
+           if segue.identifier == "ClosetViewType" {
+               if let destination = segue.destination as? ClosetViewController {
+                   destination.selectedButton = selectedButtonType
+               }
+           }
+       }
+       
+   }
