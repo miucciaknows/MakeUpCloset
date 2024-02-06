@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 enum choosenButton {
-    case skinCare
-    case makeUp
-    case hairCare
+    case make_Up
+    case skin_Care
+    case hair_Care
     case fragrances
 }
 
@@ -24,19 +24,25 @@ class MenuViewController:UIViewController {
     
     @IBOutlet weak var makeUpButton: UIButton!
     
-    @IBOutlet weak var skincareButton: UIButton!
+    @IBOutlet weak var skinCareButton: UIButton!
     
+
     
     @IBOutlet weak var hairCareButton: UIButton!
     
+    
+
     @IBOutlet weak var fragrancesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpLook(skincareButton)
         setUpLook(makeUpButton)
+        
+        setUpLook(skinCareButton)
+        
         setUpLook(hairCareButton)
+        
         setUpLook(fragrancesButton)
     }
     
@@ -47,24 +53,26 @@ class MenuViewController:UIViewController {
     }
     
     
-    @IBAction func makeupSelected(_ sender: Any) {
-        selectedButtonType = .makeUp
+    
+    @IBAction func makeUpButton(_ sender: UIButton) {
+        selectedButtonType = .make_Up
     }
     
+
     
-    @IBAction func skincareSelected(_ sender: Any) {
-        selectedButtonType = .skinCare
+   
+    @IBAction func hairCareButton(_ sender: UIButton) {
+        selectedButtonType = .hair_Care
     }
     
-    @IBAction func haircareSelected(_ sender: Any) {
-        selectedButtonType = .hairCare
-    }
-    
-  
-    @IBAction func fragancesSelected(_ sender: Any) {
+    @IBAction func fragrancesButton(_ sender: UIButton) {
         selectedButtonType = .fragrances
     }
-
+    
+    @IBAction func skinCareButton(_ sender: UIButton) {
+        selectedButtonType = .skin_Care
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "ClosetViewType" {

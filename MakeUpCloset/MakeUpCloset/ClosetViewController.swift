@@ -16,7 +16,6 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableContentView: UITableView!
 
-   
     @IBOutlet weak var pageLabel: UILabel!
     
     enum Section {
@@ -25,23 +24,23 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        
         loadBrands()
-    }
-    private func setupUI() {
+        
         switch selectedButton {
-        case .skinCare:
-            pageLabel.text = "Skin Care"
-        case .makeUp:
+        case .make_Up:
             pageLabel.text = "Makeup"
-        case .hairCare:
-            pageLabel.text = "Hair Care"
+        case .skin_Care_Option:
+            pageLabel.text = "Skincare"
+        case .hair_Care:
+            pageLabel.text = "HairCare"
         case .fragrances:
             pageLabel.text = "Fragrances"
         default:
             break
         }
     }
+  
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return brands.count
