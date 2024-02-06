@@ -16,6 +16,7 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableContentView: UITableView!
 
+   
     @IBOutlet weak var pageLabel: UILabel!
     
     enum Section {

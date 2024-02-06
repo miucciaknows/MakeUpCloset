@@ -77,7 +77,8 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="Et2-qv-NS1"/>
+                                    <action selector="makeupSelected:" destination="e0s-2S-o37" eventType="touchUpInside" id="Tau-X5-QS8"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="1nm-Y9-4F9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4l-ta-GZh">
@@ -99,7 +100,8 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="UFP-m5-BBP"/>
+                                    <action selector="skincareSelected:" destination="e0s-2S-o37" eventType="touchUpInside" id="tRi-qV-TLy"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="4L3-H8-nry"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqf-ur-Fnr">
@@ -121,7 +123,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="8T0-U3-f9r"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="oZz-sD-0IQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-ir-NWq">
@@ -155,7 +157,8 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="LCO-nW-2SJ"/>
+                                    <action selector="fragancesSelected:" destination="e0s-2S-o37" eventType="touchUpInside" id="P5j-gc-iSu"/>
+                                    <segue destination="iAv-kA-krf" kind="presentation" identifier="ClosetViewType" modalPresentationStyle="fullScreen" id="vM3-Ik-GsO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,10 +167,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="rmD-Fj-AHB"/>
                     <connections>
-                        <outlet property="fragrancesButton" destination="0Jd-vt-xew" id="v4x-4E-qWi"/>
-                        <outlet property="hairCareButton" destination="Bqf-ur-Fnr" id="Xja-hN-pwC"/>
-                        <outlet property="makeUpButton" destination="uFj-J2-Drh" id="zJL-pK-ljp"/>
-                        <outlet property="skincareButton" destination="R4l-ta-GZh" id="Jp3-f0-18t"/>
+                        <outlet property="fragrancesButton" destination="0Jd-vt-xew" id="pqP-U2-j5o"/>
+                        <outlet property="hairCareButton" destination="Bqf-ur-Fnr" id="CIQ-JP-2oO"/>
+                        <outlet property="makeUpButton" destination="uFj-J2-Drh" id="q8E-y3-ple"/>
+                        <outlet property="skincareButton" destination="R4l-ta-GZh" id="NQc-XX-CbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HG-q2-CB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -187,11 +190,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-mU-4Gv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-mU-4Gv">
                                 <rect key="frame" x="16" y="69" width="361" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
-                                <color key="textColor" red="0.97084927720000003" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -200,7 +202,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kut-yd-oAx"/>
                     <connections>
-                        <outlet property="pageLabel" destination="Upo-mU-4Gv" id="5aW-yq-6gW"/>
+                        <outlet property="pageLabel" destination="Upo-mU-4Gv" id="s3K-dN-nVN"/>
                         <outlet property="tableContentView" destination="jNP-rt-CwR" id="6sI-kK-ppN"/>
                     </connections>
                 </viewController>
@@ -210,7 +212,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LCO-nW-2SJ"/>
+        <segue reference="vM3-Ik-GsO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

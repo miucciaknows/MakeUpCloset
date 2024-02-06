@@ -18,12 +18,18 @@ enum choosenButton {
 
 class MenuViewController:UIViewController {
     
-    @IBOutlet weak var skincareButton: UIButton!
-    @IBOutlet weak var makeUpButton: UIButton!
-    @IBOutlet weak var hairCareButton: UIButton!
-    @IBOutlet weak var fragrancesButton: UIButton!
+  
     
     var selectedButtonType: choosenButton?
+    
+    @IBOutlet weak var makeUpButton: UIButton!
+    
+    @IBOutlet weak var skincareButton: UIButton!
+    
+    
+    @IBOutlet weak var hairCareButton: UIButton!
+    
+    @IBOutlet weak var fragrancesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,23 +46,25 @@ class MenuViewController:UIViewController {
         button.layer.borderWidth = 0.5;
     }
     
-    @IBAction func skincareButtonTapped(_ sender: Any) {
-           selectedButtonType = .skinCare
-       }
     
-    @IBAction func makeUpButtonTapped(_ sender: Any) {
-         selectedButtonType = .makeUp
-     }
-     
-     @IBAction func hairCareButtonTapped(_ sender: Any) {
-         selectedButtonType = .hairCare
-     }
-     
-     @IBAction func fragrancesButtonTapped(_ sender: Any) {
-         selectedButtonType = .fragrances
-     }
+    @IBAction func makeupSelected(_ sender: Any) {
+        selectedButtonType = .makeUp
+    }
     
     
+    @IBAction func skincareSelected(_ sender: Any) {
+        selectedButtonType = .skinCare
+    }
+    
+    @IBAction func haircareSelected(_ sender: Any) {
+        selectedButtonType = .hairCare
+    }
+    
+  
+    @IBAction func fragancesSelected(_ sender: Any) {
+        selectedButtonType = .fragrances
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "ClosetViewType" {
