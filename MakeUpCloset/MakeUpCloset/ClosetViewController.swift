@@ -30,7 +30,7 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
         switch selectedButton {
         case .make_Up:
             pageLabel.text = "Makeup"
-        case .skin_Care_Option:
+        case .skin_Care:
             pageLabel.text = "Skincare"
         case .hair_Care:
             pageLabel.text = "HairCare"
