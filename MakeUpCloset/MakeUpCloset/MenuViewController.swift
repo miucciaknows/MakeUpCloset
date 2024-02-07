@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum ButtonType {
-    case cuassado
+    case skin_care
     case make_Up
     case hair_Care
     case fragrances
@@ -35,7 +35,7 @@ class MenuViewController:UIViewController {
     
     
     @IBAction func careSkinButton(_ sender: UIButton) {
-        selectedButtonType = .cuassado
+        selectedButtonType = .skin_care
     }
     @IBAction func makeUpButton(_ sender: UIButton) {
         selectedButtonType = .make_Up
