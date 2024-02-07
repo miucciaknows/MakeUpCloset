@@ -41,7 +41,7 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
             
         case .hair_Care:
             pageLabel.text = "Haircare"
-            itemsToShow = ["Shampoo", "Conditioner", "Hair Oil", "Hair Mask", "Hair Serum", "Styling Tools"]
+            itemsToShow = ["Shampoo", "Conditioner", "Oil", "Mask", " Serum", "Styling Tools"]
         case .fragrances:
             pageLabel.text = "Fragrances"
             itemsToShow = ["Eau de Toilette", "Eau de Parfum"]
