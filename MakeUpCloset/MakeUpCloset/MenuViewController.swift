@@ -58,14 +58,11 @@ class MenuViewController:UIViewController {
         super.viewDidLoad()
         
         setUpLook(makeUpButton)
-        
+        setUpLook(careSkinButton)
         setUpLook(hairCareButton)
-        
         setUpLook(fragrancesButton)
         
 
-
-        
     }
     
     

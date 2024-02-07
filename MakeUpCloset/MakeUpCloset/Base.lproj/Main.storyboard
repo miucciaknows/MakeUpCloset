@@ -202,6 +202,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
                                     <attributedString key="attributedTitle"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="e0s-2S-o37" kind="presentation" id="JVx-X6-1HV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aAd-PT-i2I"/>
@@ -220,6 +223,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IJd-lz-chv"/>
+        <segue reference="JVx-X6-1HV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
