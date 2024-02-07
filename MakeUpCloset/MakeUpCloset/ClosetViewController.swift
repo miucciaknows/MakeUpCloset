@@ -13,7 +13,8 @@ import UIKit
 class ClosetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var selectedButton: ButtonType?
-    var brands: [String] = ["Brand A", "Brand B", "Brand C"]
+    
+    var itemsToShow: [String] = []
     
     @IBOutlet weak var tableContentView: UITableView!
     
@@ -33,68 +34,51 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
         switch selectedButton {
         case .make_Up:
             pageLabel.text = "MakeUp"
+            itemsToShow = ["Lipstick", "Eyeshadow", "Eyelashes", "Foundation", "Mascara", "Blush"]
         case .skin_care:
             pageLabel.text = "Skincare"
+            itemsToShow = ["Cleanser", "Moisturizer", "Sunscreen", "Serum", "Toner", "Exfoliator"]
             
         case .hair_Care:
             pageLabel.text = "Haircare"
+            itemsToShow = ["Shampoo", "Conditioner", "Hair Oil", "Hair Mask", "Hair Serum", "Styling Tools"]
         case .fragrances:
             pageLabel.text = "Fragrances"
+            itemsToShow = ["Eau de Toilette", "Eau de Parfum"]
+            
         case nil:
             break
         }
         
-        tableContentView.register(UITableViewCell.self, forCellReuseIdentifier: "AddBrandCell")
-
-
-        tableContentView.register(UITableViewCell.self, forCellReuseIdentifier: "BrandCell")
-          
-
-        tableContentView.dataSource = self
         
+        
+        //tableContentView.register(UITableViewCell.self, forCellReuseIdentifier: "AddBrandCell")
+
+    
+
+        tableContentView.register(UITableViewCell.self, forCellReuseIdentifier: "ItemCell")
+                
+  
+        tableContentView.dataSource = self
         
         
     }
     
-    private func customizeTableView() {
-            tableContentView.layer.borderWidth = 1.0
-            tableContentView.layer.borderColor = UIColor.lightGray.cgColor
-            tableContentView.layer.cornerRadius = 8.0
-        }
     
+       private func customizeTableView() {
+           tableContentView.layer.borderWidth = 1.0
+           tableContentView.layer.borderColor = UIColor.lightGray.cgColor
+           tableContentView.layer.cornerRadius = 8.0
+       }
+       
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return brands.count + 1
-       }
-       
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           if indexPath.row == 0 {
-               let cell = tableView.dequeueReusableCell(withIdentifier: "AddBrandCell", for: indexPath)
-               return cell
-           } else {
-               let cell = tableView.dequeueReusableCell(withIdentifier: "BrandCell", for: indexPath)
-               let brand = brands[indexPath.row - 1]
-               cell.textLabel?.text = brand
-               return cell
-           }
-       }
-       
-       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           if indexPath.row == 0 {
-               let alertController = UIAlertController(title: "Add Brand", message: "Enter the brand name", preferredStyle: .alert)
-               alertController.addTextField { textField in
-                   textField.placeholder = "Brand Name"
-               }
-               
-               let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
-                   guard let brandName = alertController.textFields?.first?.text, !brandName.isEmpty else { return }
-                   self?.brands.append(brandName)
-                   self?.tableContentView.reloadData()
-               }
-               
-               let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-               alertController.addAction(addAction)
-               alertController.addAction(cancelAction)
-               present(alertController, animated: true, completion: nil)
-           }
-       }
-   }
+            return itemsToShow.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+            let item = itemsToShow[indexPath.row]
+            cell.textLabel?.text = item
+            return cell
+        }
+    }
