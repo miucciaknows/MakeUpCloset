@@ -10,32 +10,10 @@ import Foundation
 import UIKit
 
 
-class Brand {
-    let name: String
-    var items: [Item]
-    
-    init(name: String) {
-        self.name = name
-        self.items = []
-    }
-}
-
-class Item {
-    let name: String
-    let type: String
-    var quantity: Int
-    
-    init(name: String, type: String, quantity: Int) {
-        self.name = name
-        self.type = type
-        self.quantity = quantity
-    }
-}
-
 class ClosetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var selectedButton: ButtonType?
-    var brands: [Brand] = []
+    var brands: [String] = ["Brand A", "Brand B", "Brand C"]
     
     @IBOutlet weak var tableContentView: UITableView!
     
@@ -66,45 +44,57 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
             break
         }
         
+        tableContentView.register(UITableViewCell.self, forCellReuseIdentifier: "AddBrandCell")
+
+
+        tableContentView.register(UITableViewCell.self, forCellReuseIdentifier: "BrandCell")
+          
+
+        tableContentView.dataSource = self
+        
         
         
     }
     
     private func customizeTableView() {
-        tableContentView.layer.borderWidth = 1.0
-        tableContentView.layer.borderColor = UIColor.lightGray.cgColor
-        tableContentView.layer.cornerRadius = 8.0
-    }
-    
+            tableContentView.layer.borderWidth = 1.0
+            tableContentView.layer.borderColor = UIColor.lightGray.cgColor
+            tableContentView.layer.cornerRadius = 8.0
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return brands.count
+           return brands.count + 1
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "BrandCell", for: indexPath)
-           
-           let brand = brands[indexPath.row]
-           cell.textLabel?.text = brand.name
-           return cell
+           if indexPath.row == 0 {
+               let cell = tableView.dequeueReusableCell(withIdentifier: "AddBrandCell", for: indexPath)
+               return cell
+           } else {
+               let cell = tableView.dequeueReusableCell(withIdentifier: "BrandCell", for: indexPath)
+               let brand = brands[indexPath.row - 1]
+               cell.textLabel?.text = brand
+               return cell
+           }
        }
        
-       @IBAction func addBrand(_ sender: Any) {
-           let alertController = UIAlertController(title: "Add Brand", message: "Enter the brand name", preferredStyle: .alert)
-           alertController.addTextField { textField in
-               textField.placeholder = "Brand Name"
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           if indexPath.row == 0 {
+               let alertController = UIAlertController(title: "Add Brand", message: "Enter the brand name", preferredStyle: .alert)
+               alertController.addTextField { textField in
+                   textField.placeholder = "Brand Name"
+               }
+               
+               let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+                   guard let brandName = alertController.textFields?.first?.text, !brandName.isEmpty else { return }
+                   self?.brands.append(brandName)
+                   self?.tableContentView.reloadData()
+               }
+               
+               let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+               alertController.addAction(addAction)
+               alertController.addAction(cancelAction)
+               present(alertController, animated: true, completion: nil)
            }
-           
-           let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
-               guard let brandName = alertController.textFields?.first?.text, !brandName.isEmpty else { return }
-               let newBrand = Brand(name: brandName)
-               self?.brands.append(newBrand)
-               self?.tableContentView.reloadData()
-           }
-           
-           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-           alertController.addAction(addAction)
-           alertController.addAction(cancelAction)
-           present(alertController, animated: true, completion: nil)
        }
    }
