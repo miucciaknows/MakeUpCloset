@@ -8,43 +8,66 @@
 import Foundation
 import UIKit
 
-enum choosenButton {
+enum ButtonType {
+    case cuassado
     case make_Up
-    case skin_Care
     case hair_Care
     case fragrances
+    
 }
 
 
 class MenuViewController:UIViewController {
     
-  
     
-    var selectedButtonType: choosenButton?
+    var selectedButtonType: ButtonType?
     
     @IBOutlet weak var makeUpButton: UIButton!
     
-    @IBOutlet weak var skinCareButton: UIButton!
-    
 
-    
     @IBOutlet weak var hairCareButton: UIButton!
-    
     
 
     @IBOutlet weak var fragrancesButton: UIButton!
     
+
+    @IBOutlet weak var careSkinButton: UIButton!
+    
+    
+    @IBAction func careSkinButton(_ sender: UIButton) {
+        selectedButtonType = .cuassado
+    }
+    @IBAction func makeUpButton(_ sender: UIButton) {
+        selectedButtonType = .make_Up
+    }
+    
+
+    @IBAction func hairCareButton(_ sender: UIButton) {
+        selectedButtonType = .hair_Care
+    }
+    
+    @IBAction func fragrancesButton(_ sender: UIButton) {
+        selectedButtonType = .fragrances
+    }
+
+ 
+ 
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpLook(makeUpButton)
         
-        setUpLook(skinCareButton)
-        
         setUpLook(hairCareButton)
         
         setUpLook(fragrancesButton)
+        
+
+
+        
     }
+    
     
     private func setUpLook(_ button: UIButton) {
         button.layer.cornerRadius = 34;
@@ -53,29 +76,8 @@ class MenuViewController:UIViewController {
     }
     
     
-    
-    @IBAction func makeUpButton(_ sender: UIButton) {
-        selectedButtonType = .make_Up
-    }
-    
-
-    
-   
-    @IBAction func hairCareButton(_ sender: UIButton) {
-        selectedButtonType = .hair_Care
-    }
-    
-    @IBAction func fragrancesButton(_ sender: UIButton) {
-        selectedButtonType = .fragrances
-    }
-    
-    @IBAction func skinCareButton(_ sender: UIButton) {
-        selectedButtonType = .skin_Care
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "ClosetViewType" {
+           if segue.identifier == "ClosetOptionClass" {
                if let destination = segue.destination as? ClosetViewController {
                    destination.selectedButton = selectedButtonType
                }

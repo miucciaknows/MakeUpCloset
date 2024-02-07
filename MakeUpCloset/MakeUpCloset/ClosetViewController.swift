@@ -11,7 +11,7 @@ import UIKit
 
 class ClosetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var selectedButton: choosenButton?
+    var selectedButton: ButtonType?
     var brands: [String] = []
     
     @IBOutlet weak var tableContentView: UITableView!
@@ -29,17 +29,22 @@ class ClosetViewController: UIViewController, UITableViewDataSource, UITableView
         
         switch selectedButton {
         case .make_Up:
-            pageLabel.text = "Makeup"
-        case .skin_Care:
+            pageLabel.text = "MakeUp"
+        case .cuassado:
             pageLabel.text = "Skincare"
+        
         case .hair_Care:
-            pageLabel.text = "HairCare"
+            pageLabel.text = "Haircare"
         case .fragrances:
             pageLabel.text = "Fragrances"
-        default:
+        case nil:
             break
         }
-    }
+        
+   
+
+        }
+
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
