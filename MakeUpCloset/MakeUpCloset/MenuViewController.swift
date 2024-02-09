@@ -18,19 +18,11 @@ enum ButtonType {
 
 
 class MenuViewController:UIViewController {
-    
-    
     var selectedButtonType: ButtonType?
     
     @IBOutlet weak var makeUpButton: UIButton!
-    
-
     @IBOutlet weak var hairCareButton: UIButton!
-    
-
     @IBOutlet weak var fragrancesButton: UIButton!
-    
-
     @IBOutlet weak var careSkinButton: UIButton!
     
     
@@ -51,9 +43,6 @@ class MenuViewController:UIViewController {
     }
 
  
- 
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,7 +50,6 @@ class MenuViewController:UIViewController {
         setUpLook(careSkinButton)
         setUpLook(hairCareButton)
         setUpLook(fragrancesButton)
-        
 
     }
     
