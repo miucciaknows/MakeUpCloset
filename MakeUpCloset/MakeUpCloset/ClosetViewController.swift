@@ -31,14 +31,19 @@ class ClosetViewController: UIViewController {
     
     @IBOutlet weak var pageLabel: UILabel!
     
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        return formatter
+    }()
+    
     override func viewDidLoad() {
            super.viewDidLoad()
            customizeTableView()
            configureItemsToShow()
            setupTableView()
        }
-       
-       private func customizeTableView() {
+    private func customizeTableView() {
            tableContentView.layer.borderWidth = 1.0
            tableContentView.layer.borderColor = UIColor.lightGray.cgColor
            tableContentView.layer.cornerRadius = 8.0
@@ -49,12 +54,12 @@ class ClosetViewController: UIViewController {
            case .make_Up:
                pageLabel.text = "MakeUp"
                itemsToShow = [
-                   MakeUpItem(name: "Lipstick", brand: ""),
-                   MakeUpItem(name: "Eyeshadow", brand: ""),
-                   MakeUpItem(name: "Eyelashes", brand: ""),
-                   MakeUpItem(name: "Foundation", brand: ""),
-                   MakeUpItem(name: "Mascara", brand: ""),
-                   MakeUpItem(name: "Blush", brand: "")
+                   MakeUpItem(name: "Lipstick", brand: "", color: "", openingDate: nil, expiryDate: nil),
+                   MakeUpItem(name: "Eyeshadow", brand: "", color: "", openingDate: nil, expiryDate: nil),
+                   MakeUpItem(name: "Eyelashes", brand: "", color: "", openingDate: nil, expiryDate: nil),
+                   MakeUpItem(name: "Foundation", brand: "", color: "", openingDate: nil, expiryDate: nil),
+                   MakeUpItem(name: "Mascara", brand: "", color: "", openingDate: nil, expiryDate: nil),
+                   MakeUpItem(name: "Blush", brand: "", color: "", openingDate: nil, expiryDate: nil)
                ]
            case .skin_care:
                pageLabel.text = "Skincare"
@@ -163,19 +168,55 @@ class ClosetViewController: UIViewController {
            alertController.addTextField { textField in
                textField.placeholder = "Enter subitem brand"
            }
+           
+           // Adiciona campos adicionais apenas para maquiagem
+           if selectedButton == .make_Up {
+               alertController.addTextField { textField in
+                   textField.placeholder = "Enter subitem color"
+               }
+               alertController.addTextField { textField in
+                   textField.placeholder = "Enter opening date (YYYY-MM-DD)"
+               }
+               alertController.addTextField { textField in
+                   textField.placeholder = "Enter expiry date (YYYY-MM-DD)"
+               }
+           }
+           
            let addAction = UIAlertAction(title: "Add", style: .default) { _ in
                guard let name = alertController.textFields?[0].text,
-                     let brand = alertController.textFields?[1].text else {
+                     let brand = alertController.textFields?[1].text,
+                     !name.isEmpty, !brand.isEmpty else {
                    return
                }
                
-               let cellIndex = sender.tag
-               let newItem = SubItem(name: name, brand: brand)
-               self.itemsToShow[cellIndex].subItems.append(newItem)
-               self.tableContentView.reloadData()
+               var color: String?
+               var openingDate: Date?
+               var expiryDate: Date?
+               
+               if self.selectedButton == .make_Up {
+                   color = alertController.textFields?[2].text
+                   openingDate = alertController.textFields?[3].text.flatMap { self.dateFormatter.date(from: $0) }
+                   expiryDate = alertController.textFields?[4].text.flatMap { self.dateFormatter.date(from: $0) }
+               }
+               
+               let newSubItem = SubItem(name: name, brand: brand)
+               
+               if let buttonPosition = sender.superview?.convert(sender.frame.origin, to: self.tableContentView),
+                  let indexPath = self.tableContentView.indexPathForRow(at: buttonPosition) {
+                   self.itemsToShow[indexPath.row].subItems.append(newSubItem)
+                   if self.selectedButton == .make_Up {
+                       if let makeupItem = self.itemsToShow[indexPath.row] as? MakeUpItem {
+                           makeupItem.color = color ?? ""
+                           makeupItem.openingDate = openingDate
+                           makeupItem.expiryDate = expiryDate
+                       }
+                   }
+                   self.tableContentView.reloadRows(at: [indexPath], with: .automatic)
+               }
            }
-           alertController.addAction(addAction)
+           
            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+           alertController.addAction(addAction)
            alertController.addAction(cancelAction)
            
            present(alertController, animated: true, completion: nil)
