@@ -25,6 +25,8 @@
 		EAD5DE672B76669B00E720C5 /* HairCareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5DE662B76669B00E720C5 /* HairCareItem.swift */; };
 		EAD5DE692B7666BE00E720C5 /* FragranceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5DE682B7666BE00E720C5 /* FragranceItem.swift */; };
 		EAD5DE6B2B7666FA00E720C5 /* BeautyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5DE6A2B7666FA00E720C5 /* BeautyItem.swift */; };
+		EAD5DE6D2B76CC6300E720C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5DE6C2B76CC6300E720C5 /* Models.swift */; };
+		EAD5DE6F2B76CC8500E720C5 /* ClosetTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5DE6E2B76CC8500E720C5 /* ClosetTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		EAD5DE662B76669B00E720C5 /* HairCareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairCareItem.swift; sourceTree = "<group>"; };
 		EAD5DE682B7666BE00E720C5 /* FragranceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragranceItem.swift; sourceTree = "<group>"; };
 		EAD5DE6A2B7666FA00E720C5 /* BeautyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyItem.swift; sourceTree = "<group>"; };
+		EAD5DE6C2B76CC6300E720C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Models.swift; path = ../../../../../.Trash/MakeUpCloset/MakeUpCloset/MakeUpCloset/Models.swift; sourceTree = "<group>"; };
+		EAD5DE6E2B76CC8500E720C5 /* ClosetTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				EAD5DE662B76669B00E720C5 /* HairCareItem.swift */,
 				EAD5DE682B7666BE00E720C5 /* FragranceItem.swift */,
 				EAD5DE6A2B7666FA00E720C5 /* BeautyItem.swift */,
+				EAD5DE6C2B76CC6300E720C5 /* Models.swift */,
+				EAD5DE6E2B76CC8500E720C5 /* ClosetTableDataSource.swift */,
 				EA63A4162ADC229B004A8839 /* Main.storyboard */,
 				EA63A4192ADC229D004A8839 /* Assets.xcassets */,
 				EA63A41B2ADC229D004A8839 /* LaunchScreen.storyboard */,
@@ -281,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD5DE6D2B76CC6300E720C5 /* Models.swift in Sources */,
 				EA63A4152ADC229B004A8839 /* ViewController.swift in Sources */,
 				EA1B7B1D2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */,
 				EAD5DE652B76667C00E720C5 /* SkincareItem.swift in Sources */,
@@ -291,6 +298,7 @@
 				EA63A4132ADC229B004A8839 /* SceneDelegate.swift in Sources */,
 				EA63A4412ADC9CB7004A8839 /* MenuViewController.swift in Sources */,
 				EAD5DE632B76665D00E720C5 /* MakeUpItem.swift in Sources */,
+				EAD5DE6F2B76CC8500E720C5 /* ClosetTableDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
