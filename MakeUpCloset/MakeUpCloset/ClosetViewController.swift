@@ -117,20 +117,36 @@ class ClosetViewController: UIViewController {
            
            var text = "\(item.name) \(item.brand)\n"
            
-
+           let attributes: [NSAttributedString.Key: Any] = [
+               .foregroundColor: UIColor.gray,
+               .font: UIFont.boldSystemFont(ofSize: 18)
+           ]
+           let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
+           
            if expandedIndexes.contains(indexPath.row) {
+               if !item.subItems.isEmpty {
+                   attributedText.append(NSAttributedString(string: "\n"))
+               }
+               
                for subItem in item.subItems {
-                   text += "\(subItem.name) - \(subItem.brand)\n"
-                   text += "Opening Date: \(subItem.openingDate.map { dateFormatter.string(from: $0) } ?? "")\n"
-                   text += "Expiry Date: \(subItem.expiryDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+                   let subItemText = NSMutableAttributedString(string: "\(subItem.name) - \(subItem.brand)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 17)])
+                   attributedText.append(subItemText)
+                   
+
+                   let openingDateText = "Opening Date: \(subItem.openingDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+                   attributedText.append(NSAttributedString(string: openingDateText))
+                   
+                   let expiryDateText = "Expiry Date: \(subItem.expiryDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+                   attributedText.append(NSAttributedString(string: expiryDateText))
+                   
+                   attributedText.append(NSAttributedString(string: "\n"))
                }
            }
            
            cell.textLabel?.numberOfLines = 0
-           cell.textLabel?.text = text
+           cell.textLabel?.attributedText = attributedText
            cellHeights[indexPath.row] = UITableView.automaticDimension
            
-     
            if expandedIndexes.contains(indexPath.row) {
                let addButton = UIButton(type: .contactAdd)
                addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
@@ -143,7 +159,6 @@ class ClosetViewController: UIViewController {
            
            return cell
        }
-
 
        
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
