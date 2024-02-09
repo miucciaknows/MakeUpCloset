@@ -11,10 +11,14 @@ class FragranceItem: BeautyItem {
     var name: String
     var brand: String
     var subItems: [SubItem]
+    var openingDate: Date?
+    var expiryDate: Date?
 
-    init(name: String, brand: String, subItems: [SubItem] = []) {
+    init(name: String, brand: String, openingDate: Date? = nil, expiryDate: Date? = nil, subItems: [SubItem] = []) {
         self.name = name
         self.brand = brand
+        self.openingDate = openingDate
+        self.expiryDate = expiryDate
         self.subItems = subItems
     }
 }
