@@ -40,11 +40,12 @@ class ClosetViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-           super.viewDidLoad()
-           customizeTableView()
-           configureItemsToShow()
-           setupTableView()
-       }
+        super.viewDidLoad()
+        customizeTableView()
+        configureItemsToShow()
+        setupTableView()
+        loadItemsFromUserDefaults()
+    }
     private func customizeTableView() {
            tableContentView.layer.borderWidth = 1.0
            tableContentView.layer.borderColor = UIColor.lightGray.cgColor
@@ -104,6 +105,67 @@ class ClosetViewController: UIViewController {
            tableContentView.delegate = self
            tableContentView.reloadData()
        }
+       
+
+       func saveItemsToUserDefaults() {
+           let itemsAsDictionaries: [[String: Any]] = itemsToShow.map { item in
+               var itemDictionary: [String: Any] = [
+                   "name": item.name,
+                   "brand": item.brand,
+                   "subItems": item.subItems.map { subItem in
+                       return [
+                           "name": subItem.name,
+                           "brand": subItem.brand,
+                           "openingDate": subItem.openingDate ?? "",
+                           "expiryDate": subItem.expiryDate ?? ""
+                       ]
+                   }
+               ]
+ 
+               if let makeupItem = item as? MakeUpItem {
+                   itemDictionary["color"] = makeupItem.color
+               }
+               return itemDictionary
+           }
+           
+           UserDefaults.standard.set(itemsAsDictionaries, forKey: "savedItems")
+    
+           UserDefaults.standard.synchronize()
+       }
+       
+  
+       func loadItemsFromUserDefaults() {
+           if let savedItems = UserDefaults.standard.array(forKey: "savedItems") as? [[String: Any]] {
+               itemsToShow = savedItems.map { itemDict in
+                   let subItems = (itemDict["subItems"] as? [[String: Any]] ?? []).map { subItemDict in
+                       return SubItem(
+                           name: subItemDict["name"] as? String ?? "",
+                           brand: subItemDict["brand"] as? String ?? "",
+                           openingDate: subItemDict["openingDate"] as? Date,
+                           expiryDate: subItemDict["expiryDate"] as? Date
+                       )
+                   }
+                   let item: BeautyItem
+                   if let color = itemDict["color"] as? String {
+                       item = MakeUpItem(
+                           name: itemDict["name"] as? String ?? "",
+                           brand: itemDict["brand"] as? String ?? "",
+                           color: color,
+                           openingDate: nil,
+                           expiryDate: nil,
+                           subItems: subItems
+                       )
+                   } else {
+                       item = SkincareItem(
+                           name: itemDict["name"] as? String ?? "",
+                           brand: itemDict["brand"] as? String ?? "",
+                           subItems: subItems
+                       )
+                   }
+                   return item
+               }
+           }
+       }
    }
 
    extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
@@ -115,7 +177,7 @@ class ClosetViewController: UIViewController {
            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
            let item = itemsToShow[indexPath.row]
            
-           var text = "\(item.name) \(item.brand)\n"
+           let text = "\(item.name) \(item.brand)\n"
            
            let attributes: [NSAttributedString.Key: Any] = [
                .foregroundColor: UIColor.gray,
@@ -190,89 +252,90 @@ class ClosetViewController: UIViewController {
        }
        
        @objc func addSubItem(_ sender: UIButton) {
-           let alertController = UIAlertController(title: "Add SubItem", message: nil, preferredStyle: .alert)
-           alertController.addTextField { textField in
-               textField.placeholder = "Enter subitem name"
-           }
-           alertController.addTextField { textField in
-               textField.placeholder = "Enter subitem brand"
-           }
-           alertController.addTextField { textField in
-               textField.placeholder = "Enter opening date (YYYY-MM-DD)"
-           }
-           alertController.addTextField { textField in
-               textField.placeholder = "Enter expiry date (YYYY-MM-DD)"
-           }
-           
-           if selectedButton == .make_Up {
+               let alertController = UIAlertController(title: "Add SubItem", message: nil, preferredStyle: .alert)
                alertController.addTextField { textField in
-                   textField.placeholder = "Enter subitem color"
+                   textField.placeholder = "Enter subitem name"
                }
-           }
-           
-           let addAction = UIAlertAction(title: "Add", style: .default) { _ in
-               guard let name = alertController.textFields?[0].text,
-                     let brand = alertController.textFields?[1].text,
-                     let openingDateString = alertController.textFields?[2].text,
-                     let expiryDateString = alertController.textFields?[3].text,
-                     !name.isEmpty, !brand.isEmpty else {
-                   return
+               alertController.addTextField { textField in
+                   textField.placeholder = "Enter subitem brand"
                }
-               
-               var color: String?
-               var openingDate: Date?
-               var expiryDate: Date?
-               
-               if self.selectedButton == .make_Up {
-                   color = alertController.textFields?[4].text
-                   openingDate = self.dateFormatter.date(from: openingDateString)
-                   expiryDate = self.dateFormatter.date(from: expiryDateString)
-               } else {
-                   openingDate = self.dateFormatter.date(from: openingDateString)
-                   expiryDate = self.dateFormatter.date(from: expiryDateString)
+               alertController.addTextField { textField in
+                   textField.placeholder = "Enter opening date (YYYY-MM-DD)"
+               }
+               alertController.addTextField { textField in
+                   textField.placeholder = "Enter expiry date (YYYY-MM-DD)"
                }
                
-               let newSubItem = SubItem(name: name, brand: brand, openingDate: openingDate, expiryDate: expiryDate)
-
-               
-               if let buttonPosition = sender.superview?.convert(sender.frame.origin, to: self.tableContentView),
-                  let indexPath = self.tableContentView.indexPathForRow(at: buttonPosition) {
-                   self.itemsToShow[indexPath.row].subItems.append(newSubItem)
-                   if self.selectedButton == .make_Up {
-                       if let makeupItem = self.itemsToShow[indexPath.row] as? MakeUpItem {
-                           makeupItem.color = color ?? ""
-                           makeupItem.openingDate = openingDate
-                           makeupItem.expiryDate = expiryDate
-                       }
+               if selectedButton == .make_Up {
+                   alertController.addTextField { textField in
+                       textField.placeholder = "Enter subitem color"
                    }
-                   self.tableContentView.reloadRows(at: [indexPath], with: .automatic)
                }
+               
+               let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+                   guard let name = alertController.textFields?[0].text,
+                         let brand = alertController.textFields?[1].text,
+                         let openingDateString = alertController.textFields?[2].text,
+                         let expiryDateString = alertController.textFields?[3].text,
+                         !name.isEmpty, !brand.isEmpty else {
+                       return
+                   }
+                   
+                   var color: String?
+                   var openingDate: Date?
+                   var expiryDate: Date?
+                   
+                   if self.selectedButton == .make_Up {
+                       color = alertController.textFields?[4].text
+                       openingDate = self.dateFormatter.date(from: openingDateString)
+                       expiryDate = self.dateFormatter.date(from: expiryDateString)
+                   } else {
+                       openingDate = self.dateFormatter.date(from: openingDateString)
+                       expiryDate = self.dateFormatter.date(from: expiryDateString)
+                   }
+                   
+                   let newSubItem = SubItem(name: name, brand: brand, openingDate: openingDate, expiryDate: expiryDate)
+                   
+                   if let buttonPosition = sender.superview?.convert(sender.frame.origin, to: self.tableContentView),
+                      let indexPath = self.tableContentView.indexPathForRow(at: buttonPosition) {
+                       self.itemsToShow[indexPath.row].subItems.append(newSubItem)
+                       if self.selectedButton == .make_Up {
+                           if let makeupItem = self.itemsToShow[indexPath.row] as? MakeUpItem {
+                               makeupItem.color = color ?? ""
+                               makeupItem.openingDate = openingDate
+                               makeupItem.expiryDate = expiryDate
+                           }
+                       }
+                       self.tableContentView.reloadRows(at: [indexPath], with: .automatic)
+                       
+      
+                       self.saveItemsToUserDefaults()
+                   }
+               }
+               
+               let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+               alertController.addAction(addAction)
+               alertController.addAction(cancelAction)
+               
+               present(alertController, animated: true, completion: nil)
            }
            
-           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-           alertController.addAction(addAction)
-           alertController.addAction(cancelAction)
-           
-           present(alertController, animated: true, completion: nil)
-       }
-       
-  
-       private func getSubItemIndexes(for parentIndex: Int) -> Set<Int>? {
-           guard parentIndex >= 0 && parentIndex < itemsToShow.count else {
-               return nil
-           }
-           
-           let subItemsCount = itemsToShow[parentIndex].subItems.count
-           guard subItemsCount > 0 else {
-               return nil
-           }
-           
-           var subItemIndexes = Set<Int>()
-           for i in 1...subItemsCount {
-               subItemIndexes.insert(parentIndex + i)
-           }
-           
-           return subItemIndexes
-       }
 
-   }
+           private func getSubItemIndexes(for parentIndex: Int) -> Set<Int>? {
+               guard parentIndex >= 0 && parentIndex < itemsToShow.count else {
+                   return nil
+               }
+               
+               let subItemsCount = itemsToShow[parentIndex].subItems.count
+               guard subItemsCount > 0 else {
+                   return nil
+               }
+               
+               var subItemIndexes = Set<Int>()
+               for i in 1...subItemsCount {
+                   subItemIndexes.insert(parentIndex + i)
+               }
+               
+               return subItemIndexes
+           }
+       }
