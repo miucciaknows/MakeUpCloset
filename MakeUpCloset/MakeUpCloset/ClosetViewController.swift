@@ -117,7 +117,7 @@ class ClosetViewController: UIViewController {
            
            var text = "\(item.name) \(item.brand)\n"
            
-           // Adicionando os subitens dentro da célula principal
+
            if expandedIndexes.contains(indexPath.row) {
                for subItem in item.subItems {
                    text += "\(subItem.name) - \(subItem.brand)\n"
