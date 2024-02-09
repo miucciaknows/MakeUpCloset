@@ -116,24 +116,33 @@ class ClosetViewController: UIViewController {
            let item = itemsToShow[indexPath.row]
            
            var text = "\(item.name) \(item.brand)\n"
-           for subItem in item.subItems {
-               text += "\(subItem.name) - \(subItem.brand)\n"
-               text += "Opening Date: \(subItem.openingDate.map { dateFormatter.string(from: $0) } ?? "")\n"
-               text += "Expiry Date: \(subItem.expiryDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+           
+           // Adicionando os subitens dentro da célula principal
+           if expandedIndexes.contains(indexPath.row) {
+               for subItem in item.subItems {
+                   text += "\(subItem.name) - \(subItem.brand)\n"
+                   text += "Opening Date: \(subItem.openingDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+                   text += "Expiry Date: \(subItem.expiryDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+               }
            }
+           
            cell.textLabel?.numberOfLines = 0
            cell.textLabel?.text = text
            cellHeights[indexPath.row] = UITableView.automaticDimension
            
-           let addButton = UIButton(type: .contactAdd)
-           addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
-           addButton.tag = indexPath.row
-           addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
-           cell.accessoryView = addButton
+     
+           if expandedIndexes.contains(indexPath.row) {
+               let addButton = UIButton(type: .contactAdd)
+               addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
+               addButton.tag = indexPath.row
+               addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
+               cell.accessoryView = addButton
+           } else {
+               cell.accessoryView = nil
+           }
            
            return cell
        }
-
 
 
        
@@ -152,11 +161,16 @@ class ClosetViewController: UIViewController {
            
            tableView.reloadRows(at: [indexPath], with: .automatic)
        }
-       
+
        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-           if let addButton = cell.accessoryView as? UIButton {
-               addButton.removeTarget(nil, action: nil, for: .allEvents)
+           if expandedIndexes.contains(indexPath.row) {
+               let addButton = UIButton(type: .contactAdd)
+               addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
+               addButton.tag = indexPath.row
                addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
+               cell.accessoryView = addButton
+           } else {
+               cell.accessoryView = nil
            }
        }
        
@@ -225,6 +239,25 @@ class ClosetViewController: UIViewController {
            alertController.addAction(cancelAction)
            
            present(alertController, animated: true, completion: nil)
+       }
+       
+  
+       private func getSubItemIndexes(for parentIndex: Int) -> Set<Int>? {
+           guard parentIndex >= 0 && parentIndex < itemsToShow.count else {
+               return nil
+           }
+           
+           let subItemsCount = itemsToShow[parentIndex].subItems.count
+           guard subItemsCount > 0 else {
+               return nil
+           }
+           
+           var subItemIndexes = Set<Int>()
+           for i in 1...subItemsCount {
+               subItemIndexes.insert(parentIndex + i)
+           }
+           
+           return subItemIndexes
        }
 
    }
