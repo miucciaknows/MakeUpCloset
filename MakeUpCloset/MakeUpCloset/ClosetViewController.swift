@@ -13,6 +13,8 @@ import UIKit
 struct SubItem {
     var name: String
     var brand: String
+    var openingDate: Date?
+    var expiryDate: Date?
 }
 
 struct Item {
@@ -113,29 +115,27 @@ class ClosetViewController: UIViewController {
            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
            let item = itemsToShow[indexPath.row]
            
-           if expandedIndexes.contains(indexPath.row) {
-               var text = item.name + "\n"
-               for subItem in item.subItems {
-                   text += "\(subItem.name) - \(subItem.brand)\n"
-               }
-               cell.textLabel?.numberOfLines = 0
-               cell.textLabel?.text = text
-               cellHeights[indexPath.row] = UITableView.automaticDimension
-               
-               let addButton = UIButton(type: .contactAdd)
-               addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
-               addButton.tag = indexPath.row
-               addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
-               cell.accessoryView = addButton
-           } else {
-               cell.textLabel?.numberOfLines = 1
-               cell.textLabel?.text = item.name
-               cellHeights[indexPath.row] = UITableView.automaticDimension
-               cell.accessoryView = nil
+           var text = "\(item.name) \(item.brand)\n"
+           for subItem in item.subItems {
+               text += "\(subItem.name) - \(subItem.brand)\n"
+               text += "Opening Date: \(subItem.openingDate.map { dateFormatter.string(from: $0) } ?? "")\n"
+               text += "Expiry Date: \(subItem.expiryDate.map { dateFormatter.string(from: $0) } ?? "")\n"
            }
+           cell.textLabel?.numberOfLines = 0
+           cell.textLabel?.text = text
+           cellHeights[indexPath.row] = UITableView.automaticDimension
+           
+           let addButton = UIButton(type: .contactAdd)
+           addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
+           addButton.tag = indexPath.row
+           addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
+           cell.accessoryView = addButton
            
            return cell
        }
+
+
+
        
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return cellHeights[indexPath.row]
@@ -168,23 +168,24 @@ class ClosetViewController: UIViewController {
            alertController.addTextField { textField in
                textField.placeholder = "Enter subitem brand"
            }
+           alertController.addTextField { textField in
+               textField.placeholder = "Enter opening date (YYYY-MM-DD)"
+           }
+           alertController.addTextField { textField in
+               textField.placeholder = "Enter expiry date (YYYY-MM-DD)"
+           }
            
-           // Adiciona campos adicionais apenas para maquiagem
            if selectedButton == .make_Up {
                alertController.addTextField { textField in
                    textField.placeholder = "Enter subitem color"
-               }
-               alertController.addTextField { textField in
-                   textField.placeholder = "Enter opening date (YYYY-MM-DD)"
-               }
-               alertController.addTextField { textField in
-                   textField.placeholder = "Enter expiry date (YYYY-MM-DD)"
                }
            }
            
            let addAction = UIAlertAction(title: "Add", style: .default) { _ in
                guard let name = alertController.textFields?[0].text,
                      let brand = alertController.textFields?[1].text,
+                     let openingDateString = alertController.textFields?[2].text,
+                     let expiryDateString = alertController.textFields?[3].text,
                      !name.isEmpty, !brand.isEmpty else {
                    return
                }
@@ -194,12 +195,16 @@ class ClosetViewController: UIViewController {
                var expiryDate: Date?
                
                if self.selectedButton == .make_Up {
-                   color = alertController.textFields?[2].text
-                   openingDate = alertController.textFields?[3].text.flatMap { self.dateFormatter.date(from: $0) }
-                   expiryDate = alertController.textFields?[4].text.flatMap { self.dateFormatter.date(from: $0) }
+                   color = alertController.textFields?[4].text
+                   openingDate = self.dateFormatter.date(from: openingDateString)
+                   expiryDate = self.dateFormatter.date(from: expiryDateString)
+               } else {
+                   openingDate = self.dateFormatter.date(from: openingDateString)
+                   expiryDate = self.dateFormatter.date(from: expiryDateString)
                }
                
-               let newSubItem = SubItem(name: name, brand: brand)
+               let newSubItem = SubItem(name: name, brand: brand, openingDate: openingDate, expiryDate: expiryDate)
+
                
                if let buttonPosition = sender.superview?.convert(sender.frame.origin, to: self.tableContentView),
                   let indexPath = self.tableContentView.indexPathForRow(at: buttonPosition) {
@@ -221,4 +226,5 @@ class ClosetViewController: UIViewController {
            
            present(alertController, animated: true, completion: nil)
        }
+
    }
