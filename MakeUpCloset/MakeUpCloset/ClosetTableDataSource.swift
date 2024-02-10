@@ -49,7 +49,6 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.attributedText = attributedText
         cellHeights[indexPath.row] = UITableView.automaticDimension
         
-        // Remove a configuração anterior do botão de adição
         cell.accessoryView = nil
         
         if expandedIndexes.contains(indexPath.row) {
@@ -63,7 +62,7 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
             addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
             
             let subtractButton = UIButton(type: .contactAdd)
-            subtractButton.tintColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            subtractButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
             subtractButton.tag = indexPath.row
             subtractButton.addTarget(self, action: #selector(subtractSubItem(_:)), for: .touchUpInside)
             
@@ -102,7 +101,7 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
             
             let subtractButton = UIButton(type: .system)
             subtractButton.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
-            subtractButton.tintColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            subtractButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
             subtractButton.addTarget(self, action: #selector(subtractSubItem(_:)), for: .touchUpInside)
             
             let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
@@ -119,10 +118,10 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
                 addButton.widthAnchor.constraint(equalToConstant: 30),
                 
                 subtractButton.leadingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: 8),
+                subtractButton.widthAnchor.constraint(equalTo: addButton.widthAnchor), // Ambos os botões têm a mesma largura
                 subtractButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
                 subtractButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-                subtractButton.heightAnchor.constraint(equalTo: containerView.heightAnchor),
-                subtractButton.widthAnchor.constraint(equalToConstant: 30)
+                subtractButton.heightAnchor.constraint(equalTo: containerView.heightAnchor)
             ])
             
             cell.accessoryView = containerView
@@ -130,7 +129,6 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
             cell.accessoryView = nil
         }
     }
-
 
     
 }
