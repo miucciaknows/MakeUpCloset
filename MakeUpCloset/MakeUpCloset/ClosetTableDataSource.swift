@@ -49,19 +49,33 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.attributedText = attributedText
         cellHeights[indexPath.row] = UITableView.automaticDimension
         
+        // Remove a configuração anterior do botão de adição
+        cell.accessoryView = nil
+        
         if expandedIndexes.contains(indexPath.row) {
+            let stackView = UIStackView()
+            stackView.axis = .horizontal
+            stackView.spacing = 8
+            
             let addButton = UIButton(type: .contactAdd)
             addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
             addButton.tag = indexPath.row
             addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
-            cell.accessoryView = addButton
-        } else {
-            cell.accessoryView = nil
+            
+            let subtractButton = UIButton(type: .contactAdd)
+            subtractButton.tintColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            subtractButton.tag = indexPath.row
+            subtractButton.addTarget(self, action: #selector(subtractSubItem(_:)), for: .touchUpInside)
+            
+            stackView.addArrangedSubview(addButton)
+            stackView.addArrangedSubview(subtractButton)
+            
+            cell.accessoryView = stackView
         }
         
         return cell
     }
-    
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[indexPath.row]
@@ -81,15 +95,43 @@ extension ClosetViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if expandedIndexes.contains(indexPath.row) {
-            let addButton = UIButton(type: .contactAdd)
+            let addButton = UIButton(type: .system)
+            addButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
             addButton.tintColor = UIColor(red: 237/255, green: 179/255, blue: 152/255, alpha: 1.0)
-            addButton.tag = indexPath.row
             addButton.addTarget(self, action: #selector(addSubItem(_:)), for: .touchUpInside)
-            cell.accessoryView = addButton
+            
+            let subtractButton = UIButton(type: .system)
+            subtractButton.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            subtractButton.tintColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            subtractButton.addTarget(self, action: #selector(subtractSubItem(_:)), for: .touchUpInside)
+            
+            let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
+            containerView.addSubview(addButton)
+            containerView.addSubview(subtractButton)
+            
+            addButton.translatesAutoresizingMaskIntoConstraints = false
+            subtractButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                addButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                addButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+                addButton.heightAnchor.constraint(equalTo: containerView.heightAnchor),
+                addButton.widthAnchor.constraint(equalToConstant: 30),
+                
+                subtractButton.leadingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: 8),
+                subtractButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+                subtractButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+                subtractButton.heightAnchor.constraint(equalTo: containerView.heightAnchor),
+                subtractButton.widthAnchor.constraint(equalToConstant: 30)
+            ])
+            
+            cell.accessoryView = containerView
         } else {
             cell.accessoryView = nil
         }
     }
+
+
     
 }
 

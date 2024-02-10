@@ -215,6 +215,8 @@ class ClosetViewController: UIViewController {
                        self.saveItemsToUserDefaults()
                    }
                }
+           
+        
                
                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                alertController.addAction(addAction)
@@ -223,6 +225,25 @@ class ClosetViewController: UIViewController {
                present(alertController, animated: true, completion: nil)
            }
            
+    @objc func subtractSubItem(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Remove SubItem", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let itemIndex = sender.tag
+        let item = itemsToShow[itemIndex]
+        for (index, subItem) in item.subItems.enumerated() {
+            let removeAction = UIAlertAction(title: "\(subItem.name) - \(subItem.brand)", style: .destructive) { _ in
+                self.itemsToShow[itemIndex].subItems.remove(at: index)
+                self.saveItemsToUserDefaults()
+                self.tableContentView.reloadData()
+            }
+            alertController.addAction(removeAction)
+        }
+        
+        present(alertController, animated: true, completion: nil)
+    }
 
            private func getSubItemIndexes(for parentIndex: Int) -> Set<Int>? {
                guard parentIndex >= 0 && parentIndex < itemsToShow.count else {
