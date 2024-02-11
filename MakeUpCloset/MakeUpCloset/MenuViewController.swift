@@ -65,13 +65,22 @@ class MenuViewController:UIViewController {
 
     }
     
-    
     private func setUpLook(_ button: UIButton) {
-        button.layer.cornerRadius = 34;
-        button.layer.borderColor = UIColor.lightGray.cgColor;
-        button.layer.borderWidth = 0.5;
+        let bottomLinePath = UIBezierPath()
+        bottomLinePath.move(to: CGPoint(x: 0, y: button.bounds.height))
+        bottomLinePath.addLine(to: CGPoint(x: button.bounds.width, y: button.bounds.height))
+        
+        let bottomLineLayer = CAShapeLayer()
+        bottomLineLayer.path = bottomLinePath.cgPath
+        bottomLineLayer.strokeColor = UIColor.lightGray.cgColor
+        bottomLineLayer.lineWidth = 0.5
+        bottomLineLayer.lineDashPattern = [4, 4]
+        
+        button.layer.addSublayer(bottomLineLayer)
+        
+        button.layer.cornerRadius = 34
     }
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "ClosetOptionClass" {
