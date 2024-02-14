@@ -84,7 +84,7 @@ class MenuViewController:UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "ClosetOptionClass" {
-               if let destination = segue.destination as? ClosetViewController {
+               if let destination = segue.destination as?  ClosetViewController {
                    destination.selectedButton = selectedButtonType
                }
            }

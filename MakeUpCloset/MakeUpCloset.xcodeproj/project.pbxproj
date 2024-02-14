@@ -20,6 +20,10 @@
 		EA63A4322ADC229D004A8839 /* MakeUpClosetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63A4312ADC229D004A8839 /* MakeUpClosetUITests.swift */; };
 		EA63A4342ADC229D004A8839 /* MakeUpClosetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63A4332ADC229D004A8839 /* MakeUpClosetUITestsLaunchTests.swift */; };
 		EA63A4412ADC9CB7004A8839 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA63A4402ADC9CB7004A8839 /* MenuViewController.swift */; };
+		EACBDDBE2B79767300533C5D /* ItemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACBDDBD2B79767300533C5D /* ItemModels.swift */; };
+		EACBDDC02B79768F00533C5D /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACBDDBF2B79768F00533C5D /* CALayer+Extensions.swift */; };
+		EAEA2DDD2B7BFF5200F5F31D /* ClosetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEA2DDC2B7BFF5200F5F31D /* ClosetController.swift */; };
+		EAEA2DDF2B7C05DF00F5F31D /* ClosetControllerTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEA2DDE2B7C05DF00F5F31D /* ClosetControllerTables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		EA63A4312ADC229D004A8839 /* MakeUpClosetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeUpClosetUITests.swift; sourceTree = "<group>"; };
 		EA63A4332ADC229D004A8839 /* MakeUpClosetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeUpClosetUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EA63A4402ADC9CB7004A8839 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		EACBDDBD2B79767300533C5D /* ItemModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModels.swift; sourceTree = "<group>"; };
+		EACBDDBF2B79768F00533C5D /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
+		EAEA2DDC2B7BFF5200F5F31D /* ClosetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetController.swift; sourceTree = "<group>"; };
+		EAEA2DDE2B7C05DF00F5F31D /* ClosetControllerTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetControllerTables.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +118,10 @@
 				EA63A4142ADC229B004A8839 /* ViewController.swift */,
 				EA63A4402ADC9CB7004A8839 /* MenuViewController.swift */,
 				EA1B7B1C2B3AFB9A00696E58 /* ClosetViewController.swift */,
+				EAEA2DDC2B7BFF5200F5F31D /* ClosetController.swift */,
+				EAEA2DDE2B7C05DF00F5F31D /* ClosetControllerTables.swift */,
+				EACBDDBD2B79767300533C5D /* ItemModels.swift */,
+				EACBDDBF2B79768F00533C5D /* CALayer+Extensions.swift */,
 				EA63A4162ADC229B004A8839 /* Main.storyboard */,
 				EA63A4192ADC229D004A8839 /* Assets.xcassets */,
 				EA63A41B2ADC229D004A8839 /* LaunchScreen.storyboard */,
@@ -266,11 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EACBDDBE2B79767300533C5D /* ItemModels.swift in Sources */,
 				EA63A4152ADC229B004A8839 /* ViewController.swift in Sources */,
 				EA1B7B1D2B3AFB9A00696E58 /* ClosetViewController.swift in Sources */,
 				EA63A4112ADC229B004A8839 /* AppDelegate.swift in Sources */,
+				EACBDDC02B79768F00533C5D /* CALayer+Extensions.swift in Sources */,
 				EA63A4132ADC229B004A8839 /* SceneDelegate.swift in Sources */,
 				EA63A4412ADC9CB7004A8839 /* MenuViewController.swift in Sources */,
+				EAEA2DDD2B7BFF5200F5F31D /* ClosetController.swift in Sources */,
+				EAEA2DDF2B7C05DF00F5F31D /* ClosetControllerTables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,9 +473,12 @@
 				DEVELOPMENT_TEAM = 68T5YJGRM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MakeUpCloset/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Beuaté Closet";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,9 +504,12 @@
 				DEVELOPMENT_TEAM = 68T5YJGRM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MakeUpCloset/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Beuaté Closet";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
