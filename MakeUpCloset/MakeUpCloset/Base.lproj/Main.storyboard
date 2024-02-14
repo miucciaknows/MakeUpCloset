@@ -30,7 +30,7 @@
                                         <fragment content="BEAUTÉ CLOSET">
                                             <attributes>
                                                 <color key="NSColor" red="0.90205144557823125" green="0.70412966791224485" blue="0.59198312127755093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="12" name="Copperplate"/>
+                                                <font key="NSFont" size="19" name="Copperplate"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -71,7 +71,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-vt-xew">
-                                <rect key="frame" x="64" y="435" width="265" height="55"/>
+                                <rect key="frame" x="64" y="596" width="265" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,8 +81,8 @@
                                         <fragment content="FRAGRANCES">
                                             <attributes>
                                                 <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="NSColor" red="0.90205144557823125" green="0.70412966791224485" blue="0.59198312127755093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name="Copperplate"/>
+                                                <color key="NSColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="28" name="Copperplate"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -94,7 +94,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqf-ur-Fnr">
-                                <rect key="frame" x="64" y="357" width="265" height="55"/>
+                                <rect key="frame" x="64" y="440" width="265" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,8 +104,8 @@
                                         <fragment content="HAIRCARE">
                                             <attributes>
                                                 <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="NSColor" red="0.90205144557823125" green="0.70412966791224485" blue="0.59198312127755093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name="Copperplate"/>
+                                                <color key="NSColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="28" name="Copperplate"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -117,14 +117,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-Sb-gJa">
-                                <rect key="frame" x="64" y="282" width="265" height="55"/>
+                                <rect key="frame" x="64" y="287" width="265" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button">
                                     <attributedString key="attributedTitle">
                                         <fragment content="SKINCARE">
                                             <attributes>
-                                                <font key="NSFont" size="24" name="Copperplate"/>
+                                                <font key="NSFont" size="28" name="Copperplate"/>
                                                 <font key="NSOriginalFont" size="12" name="Helvetica"/>
                                             </attributes>
                                         </fragment>
@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFj-J2-Drh">
-                                <rect key="frame" x="64" y="206" width="265" height="55"/>
+                                <rect key="frame" x="64" y="147" width="265" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,8 +146,8 @@
                                         <fragment content="MAKEUP">
                                             <attributes>
                                                 <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="NSColor" red="0.90205144557823125" green="0.70412966791224485" blue="0.59198312127755093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name="Copperplate"/>
+                                                <color key="NSColor" red="0.90205144559999995" green="0.70412966789999998" blue="0.59198312129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="28" name="Copperplate"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -192,7 +192,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-mU-4Gv">
                                 <rect key="frame" x="16" y="69" width="361" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="28"/>
                                 <color key="textColor" red="0.87692266699999999" green="0.72736042739999995" blue="0.62350970510000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -214,8 +214,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="kut-yd-oAx"/>
                     <connections>
-                        <outlet property="pageLabel" destination="Upo-mU-4Gv" id="s3K-dN-nVN"/>
-                        <outlet property="tableContentView" destination="jNP-rt-CwR" id="6sI-kK-ppN"/>
+                        <outlet property="pageLabel" destination="Upo-mU-4Gv" id="Kpf-de-npC"/>
+                        <outlet property="tableContentView" destination="jNP-rt-CwR" id="pbH-77-Ht7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBE-v0-fNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -225,23 +225,23 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IJd-lz-chv"/>
-        <segue reference="JVx-X6-1HV"/>
+        <segue reference="xJe-Y8-gDF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.87294852730000005" green="0.71167892219999995" blue="0.60782301429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="flower_menu" width="79" height="78"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

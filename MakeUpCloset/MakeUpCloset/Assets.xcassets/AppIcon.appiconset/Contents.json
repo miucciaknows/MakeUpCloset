@@ -1,6 +1,15 @@
 {
   "images" : [
     {
+      "display-gamut" : "sRGB",
+      "filename" : "flower_icon.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    },
+    {
+      "display-gamut" : "display-P3",
+      "filename" : "flower_icon 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
