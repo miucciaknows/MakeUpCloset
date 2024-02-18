@@ -1,6 +1,6 @@
 # Make Up Closet
 
-Application developed using `Swift` and `Objective-C`, using UIKIT and Storyboard to organize beauty care items, including makeup, skincare, haircare, and fragrances.
+Simple Application developed using `Swift` and `Objective-C`, using UIKIT and Storyboard to organize beauty care items, including makeup, skincare, haircare, and fragrances.
 
 Each item has its own page with cells corresponding to sub-items of these items; the cells have the option to add items you have or remove them.
 
