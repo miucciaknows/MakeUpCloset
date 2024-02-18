@@ -22,5 +22,5 @@ Each item has its own page with cells corresponding to sub-items of these items;
 
 ## Additional Information
 
-This app is built for iOS using `Swift`, `UIKit` and `Storyboard`. It uses UserDefaults to store data locally, so you can keep track of your makeup, skincare, haircare, and fragrances. The interface is made with UITableView, making it easy to scroll through your items. Each category has its own page, and you can add or remove items with just a tap.
+This app is built for iOS using `Swift`, `UIKit` and `Storyboard`. It uses UserDefaults to store data locally, so you can keep track of your makeup, skincare, haircare, and fragrances. The interface is made with `UITableView`, making it easy to scroll through your items. Each category has its own page, and you can add or remove items with just a tap.
 
