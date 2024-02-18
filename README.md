@@ -6,7 +6,8 @@ This app is like your personal organizer for makeup, skincare, haircare, and fra
 
 Each item has its own page with cells corresponding to sub-items of these items; the cells have the option to add items you have or remove them.
 
-![Imagem 01](./Images/Screen01.png)
+<img src="./Images/Screen01.png" alt="Imagem 01" width="800">
+
 
 1. App's launch screen. 
 2. Starting screen; to use the app, simply click on 'Beauté Closet.' 
