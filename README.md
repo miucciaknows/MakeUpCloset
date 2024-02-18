@@ -6,7 +6,7 @@ This app is like your personal organizer for makeup, skincare, haircare, and fra
 
 Each item has its own page with cells corresponding to sub-items of these items; the cells have the option to add items you have or remove them.
 
-<img src="./Images/Screen01.png" alt="Imagem 01" width="1000" height="400">
+<img src="./Images/Screen01.png" alt="Imagem 01" width="1200" height="340">
 
 
 1. App's launch screen. 
@@ -15,7 +15,7 @@ Each item has its own page with cells corresponding to sub-items of these items;
 4. The fourth image shows cells of items belonging to makeup. 
 5. In this image, you can see how a sub-item is added to the cell. To add, simply expand the cell of the desired option and click on the '+' icon.
 
-<img src="./Images/Screen02.png" alt="Imagem 02" width="700" height="300">
+<img src="./Images/Screen02.png" alt="Imagem 02" width="480" height="400">
 
 6. After adding an item, it should appear on the screen. 
 7. To add items from other categories, simply expand the cell. To delete items, just click on the '-' icon and choose the item to remove.
